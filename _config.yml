@@ -1,7 +1,7 @@
 # Site settings
-title: PHOTORAMA
-email: ""
-description: "Photo Journal"
+title: LICH226's pages
+email: "226lich@gmail.com"
+description: "LICH226's Photo Journal & life"
 url: "https://LICH226.github.io"
 baseurl: ""
 facebook_username: ""
@@ -15,7 +15,7 @@ share: true
 
 # Owner/author information
 owner:
-  name:   photorama
+  name:   LICH
   avatar: avatar.png
   favicon: favicon.ico
   info: photography website template
@@ -33,9 +33,9 @@ comments :
 
 # Internal nav
 nav:
-  - GALLERY: "https://sunbliss.github.io/photorama/gallery/"  
-  - JOURNAL: "https://sunbliss.github.io/photorama/journal/"
-  - ABOUT: "https://sunbliss.github.io/photorama/about/"
+  - GALLERY: "https://LICH226.github.io/gallery/"   
+  - JOURNAL: "https://LICH226.github.io/journal/"
+  - ABOUT: "https://LICH226.github.io/about/"
 
 # All translation keys
 translations:
