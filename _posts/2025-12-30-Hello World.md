@@ -17,4 +17,4 @@ comments: false
 
 <p>As a programmer, the first line of code we usually write is to print 'Hello World' on the screen. In the same spirit, this blog marks a new beginning. These pages will record my research, my travels, and my life as a graduate student.</p>
 
-/p>Welcome to my world!!</p>
+<p>Welcome to my world!</p>
