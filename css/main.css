@@ -406,10 +406,11 @@ body {
  color: black;
 }
 /* 修改 row 下面的段落字体 */
-.row p {
+.row p,
+.row li {
   font-family: "Times New Roman", Georgia, serif;
   font-style: italic;
   font-size: 20px;
   line-height: 1.7;
-  color: #97baef;
+  color: #b4cef6;
 }
