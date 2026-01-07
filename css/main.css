@@ -405,7 +405,8 @@ body {
 .fa-stack-2x {
  color: black;
 }
-/* 修改 row 下面的段落字体 */
+
+
 .row p,
 .row li {
   font-family: "Times New Roman", Georgia, serif;
@@ -413,4 +414,17 @@ body {
   font-size: 20px;
   line-height: 1.7;
   color: #b4cef6;
+}
+
+.post_img_video {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  display: block;
+  text-align: center;
+}
+.post_img_video img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
