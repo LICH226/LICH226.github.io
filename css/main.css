@@ -428,3 +428,10 @@ body {
   display: block;
   margin: 0 auto;
 }
+figcaption {
+  background-color:#ffffff;
+  color:#91f598;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
