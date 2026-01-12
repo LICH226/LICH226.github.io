@@ -9,7 +9,7 @@ date:       2025-12-30
 header-img: "img/postcover/pc009.jpg"
 tags: [Thoughts]
 categories: [Life]
-comments: false
+comments: true
 ---
 
 
