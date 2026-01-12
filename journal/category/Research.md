@@ -1,6 +1,6 @@
 ---
 layout: "journal_by_category"
-category: "cat03"
-permalink: "/journal/category/cat03/"
+category: "Research"
+permalink: "/journal/category/Research/"
 header-img: "img/archive-bg.jpg"
 ---

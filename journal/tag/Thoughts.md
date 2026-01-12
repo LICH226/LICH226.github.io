@@ -1,6 +1,6 @@
 ---
 layout: "journal_by_tag"
-tag: "tag02"
-permalink: "/journal/tag/tag02/"
+tag: "Thoughts"
+permalink: "/journal/tag/Thoughts/"
 header-img: "img/archive-bg.jpg"
 ---

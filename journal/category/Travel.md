@@ -1,6 +1,6 @@
 ---
 layout: "journal_by_category"
-category: "cat02"
-permalink: "/journal/category/cat02/"
+category: "Travel"
+permalink: "/journal/category/Travel/"
 header-img: "img/archive-bg.jpg"
 ---

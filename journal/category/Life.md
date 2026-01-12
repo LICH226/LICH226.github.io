@@ -1,6 +1,6 @@
 ---
 layout: "journal_by_category"
-category: "cat01"
-permalink: "/journal/category/cat01/"
+category: "Life"
+permalink: "/journal/category/Life/"
 header-img: "img/archive-bg.jpg"
 ---
