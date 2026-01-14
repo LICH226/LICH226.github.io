@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "STHeiti", sans-serif;
   font-size: 20px;
   color: #eee;
   background-color: #000;
@@ -409,11 +409,13 @@ body {
 
 .row p,
 .row li {
-  font-family: "Times New Roman", Georgia, serif;
-  font-style: italic;
-  font-size: 20px;
-  line-height: 1.7;
-  color: #b4cef6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-style: normal;
+  font-size: 18px;    
+  line-height: 1.8;   
+  letter-spacing: 0.5px;
+  color: #cddff7;     
+  font-weight: 300; 
 }
 
 .post_img_video {
@@ -422,7 +424,8 @@ body {
   display: block;
   text-align: center;
 }
-.post_img_video img {
+.post_img_video img,
+.post_img_video video {
   max-width: 100%;
   height: auto;
   display: block;
