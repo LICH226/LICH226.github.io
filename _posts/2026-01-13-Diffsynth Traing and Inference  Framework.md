@@ -16,14 +16,6 @@ comments: true
 
 本文章作为自己这三天从0开始到已经可以自由改 Diffsynth 框架各个部分的学习记录。
 
-<figure class="post_img_video">
-    <video controls style="max-width: 100%; height: auto;">
-        <source src="{{ site.baseurl }}/img/post/diffsynth_traing_and_inference_framework/demo.mp4.mp4" type="video/mp4">
-        您的浏览器不支持 HTML5 视频标签。
-    </video> 
-    <figcaption>合成视频的demo</figcaption>
-</figure>
-
 通常一个完整的模型训练流程需要数据，模型，训练模块，训推Pipeline和一些其他的超参数或者优化等其他部分，因为我最近在做virtual-tryon video 生成，我将以这个task为例，按照数据准备、模型架构的修改、训推pipeline如何构建、还有一些其他的参数和框架的小设计四个方面介绍。
 
 ## 数据

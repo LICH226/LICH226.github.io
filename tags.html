@@ -1,0 +1,45 @@
+---
+layout: page
+title: Tags
+description: "all tags"
+header-img: "img/misc-bg.jpg"
+---
+
+<div class="tags-cloud" style="text-align: center; margin-bottom: 40px;">
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+    <a href="#{{ tag[0] | slugify }}" style="font-size: 14px; margin: 5px; display: inline-block; padding: 5px 10px; border: 1px solid #ddd; border-radius: 15px; color: #333; text-decoration: none;">
+        {{ tag[0] }} 
+        <span style="font-size: 10px; color: #999;">({{ tag[1].size }})</span>
+    </a>
+    {% endfor %}
+</div>
+
+<hr>
+
+<div class="tags-listing">
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+    
+    <div id="{{ tag[0] | slugify }}" class="tag-section" style="margin-bottom: 50px;">
+        
+        <h3 style="color: #0085a1;">
+            <i class="fas fa-tag"></i> {{ tag[0] }}
+        </h3>
+        
+        <ul class="list-group">
+            {% for post in tag[1] %}
+            <li class="list-group-item" style="border: none; border-bottom: 1px dashed #eee; padding: 10px 0;">
+                <span style="color: #999; font-size: 14px; margin-right: 15px;">
+                    {{ post.date | date: "%Y-%m-%d" }}
+                </span>
+                <a href="{{ site.baseurl }}{{ post.url }}" style="font-size: 18px; font-weight: 600; text-decoration: none; color: #404040;">
+                    {{ post.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+    {% endfor %}
+</div>
