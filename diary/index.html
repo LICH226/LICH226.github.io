@@ -1,0 +1,23 @@
+---
+layout: page
+title: "My Diary"
+description: "碎碎念"
+header-img: "img/diary-bg.jpg"
+---
+
+<div class="posts">
+  {% for post in site.diary reversed %} 
+  <div class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">
+                {{ post.title }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ post.date | date: "%Y-%m-%d" }}
+            </h3>
+        </a>
+    </div>
+    <hr>
+
+  {% endfor %}
+</div>

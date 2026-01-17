@@ -35,10 +35,12 @@ comments :
     short_name : ""
 
 # Internal nav
+# Internal nav
 nav:
-  - GALLERY: "https://LICH226.github.io/gallery/"   
-  - JOURNAL: "https://LICH226.github.io/journal/"
-  - ABOUT: "https://LICH226.github.io/about/"
+  - GALLERY: "/gallery/"    
+  - JOURNAL: "/journal/"
+  - DIARY: "/diary/"
+  - ABOUT: "/about/"
 
 # All translation keys
 translations:
@@ -74,3 +76,9 @@ sitemap:
         - "/writing/"
     change_frequency_name: "change_frequency"
     priority_name: "priority"
+
+# Collections
+collections:
+  diary:
+    output: true
+    permalink: /diary/:path/
