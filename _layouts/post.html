@@ -33,7 +33,7 @@ layout: default
                 {% if post.tags.size > 0 %}
                  &sim; Tagged with <i class="fa fa-tags"></i>&nbsp;:&nbsp;
                  {% for tag in page.tags %}
-                    <a href="{{ site.baseurl }}/tags.html#{{ tag | slugify }}" data-toggle="tooltip" title="Other posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>
+                    <a href="{{ site.baseurl }}/journal/tag#{{ tag | slugify }}" data-toggle="tooltip" title="Other posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>
                     {% unless forloop.last %}&nbsp;&bull;&nbsp;{% endunless %}
                  {% endfor %}
                 {% endif %}
@@ -98,7 +98,7 @@ layout: default
         <div class="tag-list">
             {% assign tags = site.tags | sort %}
             {% for tag in tags %}
-                <a href="{{ site.baseurl }}/tags.html#{{ tag[0] | slugify }}" style="text-decoration:none;"> 
+                <a href="{{ site.baseurl }}/journal/tag#{{ tag[0] | slugify }}" style="text-decoration:none;"> 
                     {{ tag[0] }} 
                 </a> &nbsp;&nbsp;
             {% endfor %}
