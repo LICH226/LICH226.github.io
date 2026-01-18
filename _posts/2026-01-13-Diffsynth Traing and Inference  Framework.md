@@ -785,9 +785,7 @@ def forward(self, data):
 
 ```
 
-
-
-## models
+## 模型（models）
 
 魔改模型基本都是继承 WanModel , 然后修改它的 ditblock 部分，ditblock 部分又可以使用继承 crossattention 的自定义 attention module，通过在这三个 module 可以自由处理组合传入的各种 condition 信息。
 
@@ -811,6 +809,40 @@ class WanVTONCrossAttention(CrossAttention):
 
 ## 其他部分
 
-上面介绍了主要的训练流程需要准备和注意的细节，包括 数据处理、训推 pipeline、模型修改，这一部分主要介绍 Diffsynth 的一些其他细节
+上面介绍了主要的训练流程需要准备和注意的细节，包括 数据处理、训推 pipeline、模型修改，这一部分主要介绍 Diffsynth 的一些其他细节。
 
-### 训练部分加载
+### 断点重训
+
+Diffsynth 框架不保存优化器状态等 checkpoint，只保存训练的 safetensor 权重，因此只支持重新加载模型进行训练，另外它不支持 batchsize > 1，和其他的优化器（目前是 constant 优化器，可能是非 constant 优化器没法断点重训加载 checkpoint 训练）。
+
+### 训练部分选择
+
+```switch_pipe_to_training_mode```可以同时选择全量微调的部分和 lora 微调的部分，但有时会出现全量微调的部分也有 lora 的 target layer， 这个时候就得自己对继承的 DiffusionTrainingModule 加一个 ```set training``` 方法，来手动添加要训练的部分。
+
+### Bug 归总
+
+#### 1.```diffsynth.models.wan_video_dit```中的 WanModel ```patchify```
+
+patchify 返回值没有 f、h、w，并且没有 flatten。我目前的修复方法是添加下面注释的两行代码，经测试可以解决该bug。
+
+```python
+    def patchify(self, x: torch.Tensor, control_camera_latents_input: Optional[torch.Tensor] = None):
+        x = self.patch_embedding(x)
+        if self.control_adapter is not None and control_camera_latents_input is not None:
+            y_camera = self.control_adapter(control_camera_latents_input)
+            x = [u + v for u, v in zip(x, y_camera)]
+            x = x[0].unsqueeze(0)
+        
+        # f, h, w = x.shape[2], x.shape[3], x.shape[4]
+        # x = x.flatten(2).transpose(1, 2)
+        return x, (f, h, w)
+```
+
+#### 2. vae 的 encode 在 deepspeed zero3 情况下 shape 对不上，但是 zero2 不会
+
+目前 issue 上也有这个 bug，还没有被解决。
+
+<figure class="post_img_video">
+    <img src="{{ site.baseurl }}/img/post/diffsynth_traing_and_inference_framework/1.jpg" alt="issue image"/>
+    <figcaption>issue image</figcaption>
+</figure>

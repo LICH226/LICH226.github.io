@@ -52,20 +52,29 @@ layout: default
         </div>
     </div>
 </header>
-
 <div class="container">
-        <div class="row">
+    <div class="row">
+        
+        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+            <div id="toc-sidebar" class="sticky-sidebar">
+                <h5>文章目录</h5>
+                <ul id="toc-list" class="nav"></ul>
+            </div>
+        </div>
+
+        <div class="col-lg-9 col-md-9">
             
-            {{ content }}
+            <div id="post-content">
+                {{ content }}
+            </div>
 
             <br><br><br>
 
             {% include signoff.html %} 
             <hr class="small">
             {% if site.share %}{% include share.html %}{% endif %}
-                        
             {% if site.comments %}{% include disqus_comments.html %}{% endif %}
-                        
+            
             <br>
 
             <ul class="pager">
@@ -83,6 +92,7 @@ layout: default
 
         </div>
     </div>
+</div>
 </article>
 
 <br>
@@ -150,6 +160,43 @@ image: {
         }
           // other options
       });
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    var tocList = $("#toc-list");
+    var content = $("#post-content");
+    // 扫描 h2 和 h3
+    var headers = content.find("h2, h3");
+
+    if (headers.length > 0) {
+        headers.each(function(i) {
+            var current = $(this);
+            // 如果标题没有 ID，给它生成一个
+            var id = current.attr("id");
+            if (!id) {
+                id = "header-" + i;
+                current.attr("id", id);
+            }
+            
+            // 生成链接
+            var text = current.text();
+            var link = $("<a></a>").attr("href", "#" + id).text(text);
+            var item = $("<li></li>").append(link);
+            
+            // 如果是 h3，缩进一下
+            if (current.prop("tagName") === "H3") {
+                item.css("padding-left", "20px");
+                item.css("font-size", "0.9em");
+            }
+            
+            tocList.append(item);
+        });
+    } else {
+        // 如果没有标题，隐藏目录栏
+        $("#toc-sidebar").hide();
+    }
 });
 </script>
 
